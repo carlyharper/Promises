@@ -11,22 +11,24 @@
 //    });
 
 function addNumbers(x, y) {
-    var p = new Promise(function(resolve, reject){
-        if (x != NaN && y != NaN) {
+    var promise = new Promise(function(resolve, reject){
+        if (!(isNaN(x)) && isNaN(y)) {
             resolve(x+y);
         } else {
             reject('Both of your values need to be numbers');
         }
     });
-    return p;
+    return promise;
 }
 
-addNumbers(3, 4)
-   .then(function (answer) {
-      console.log(answer);
-   })
-   .catch(function (error) {
-      console.log(error);
-   });
+addNumbers("x", 4)
+    .then(function (answer){
+        console.log(answer)
+    })
+    .catch(function (error) {
+        console.log(error)
+    })
+
+
 
 
